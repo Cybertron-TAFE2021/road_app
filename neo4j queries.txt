@@ -1,0 +1,15 @@
+--Select all nodes--
+
+MATCH(n) RETURN n
+
+
+
+--Selct 10 nodes--
+
+
+MATCH(n) RETURN n LIMIT 10
+
+
+**Road Trip Graph DBMS password**
+
+12345
