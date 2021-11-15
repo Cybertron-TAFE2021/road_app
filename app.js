@@ -31,7 +31,7 @@ app.get("/", function(req, res){
 
 
     session
-        .run('MATCH(n) RETURN n LIMIT 3')
+        .run('MATCH(r:RestArea) RETURN r LIMIT 10')
         .then(function(result){
 
             var resultArray = []; //use this array to pass the result to rendered home page
@@ -39,10 +39,10 @@ app.get("/", function(req, res){
             result.records.forEach(function(record){
 
                 resultArray.push( //adding record into the resultArray through each iteration
-                    record //can further refined to only push certain properties later one when I get better at using cypher query
+                    record._fields[0].properties //can further refined to only push certain properties later one when I get better at using cypher query
                 );
 
-                console.log(record);
+                console.log(record._fields[0].properties);
             });
             res.render("home", {result: resultArray}); 
         })
