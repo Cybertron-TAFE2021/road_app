@@ -31,18 +31,27 @@ app.get("/", function(req, res){
 
 
     session
-        .run('MATCH(n) RETURN n LIMIT 10')
+        .run('MATCH(n) RETURN n LIMIT 3')
         .then(function(result){
+
+            var resultArray = []; //use this array to pass the result to rendered home page
+
             result.records.forEach(function(record){
+
+                resultArray.push( //adding record into the resultArray through each iteration
+                    record //can further refined to only push certain properties later one when I get better at using cypher query
+                );
+
                 console.log(record);
-            })
+            });
+            res.render("home", {result: resultArray}); 
         })
         .catch(function(err){
             console.log(err);
         });
 
-        res.send("deez heavy nutz G")
-    //res.render("home"); 
+        
+    
     //console.log("deez nutz");
 
 })
