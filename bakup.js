@@ -10,12 +10,10 @@ const app = express();
 const _ = require("lodash");
 
 const neo4j = require("neo4j-driver"); //The MOST IMPORTANT BIT OF THIS APP.
-const { json } = require("express");
 
 const uri ="bolt://localhost:7687";
 const password = "12345";
 const username = "neo4j";
-
 
 const driver =  neo4j.driver(uri, neo4j.auth.basic(username, password));
 
@@ -48,7 +46,7 @@ app.get("/", function(req, res){
                     record._fields[0].properties //pushes the entire properties field
                 );
 
-                //console.log(record._fields[0].properties);
+                console.log(record._fields[0].properties);
 
                 
             });
@@ -58,17 +56,13 @@ app.get("/", function(req, res){
         })
         .catch(function(err){
             console.log(err);
-        }); 
+        });
 
-
-     
-
-
-     
-       
+        
     
-    
+    //console.log("deez nutz");
 
+    //session.close();
 
 })
 
