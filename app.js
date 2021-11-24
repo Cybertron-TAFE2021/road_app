@@ -45,10 +45,10 @@ app.get("/", function(req, res){
                 resultArray.push( //adding record into the resultArray through each iteration
 
 
-                    record._fields[0].properties //pushes the entire properties field
+                record._fields[0].properties //pushes the entire properties field
                 );
 
-                //console.log(record._fields[0].properties);
+                //console.log(record._fields[0].properties);//just logs what is being pushed.
 
                 
             });
